@@ -4,7 +4,9 @@ class UserStorage {
 	loginUser(id, password, onSuccess, onError) {
 		setTimeout(() => {
 			if(
-				(id === 'fe_dev' && password === 'password1234!')
+                (id === 'fe_dev' && password === 'password1234!' ||
+                    id === 'coder' && password === 'coder1234!' ||
+                    id === 'updaun' && password === 'updaun1234!')
 			) {
 				onSuccess(id);
 			} else {
@@ -17,7 +19,9 @@ class UserStorage {
 		setTimeout(() => {
 			if (user === 'fe_dev') {
 				onSuccess({name:'fe_dev', role: 'admin'});
-			} else {
+            } else if (user === 'coder') {
+                onSuccess({name:'coder', role: 'user'});
+            } else {
 				onError(new Error('no access'));
 			}
 		}, 1000);
